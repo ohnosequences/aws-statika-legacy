@@ -1,3 +1,3 @@
 ### aws-statika project
 
-Project description here.
+The part of [statika](https://github.com/ohnosequences/statika) library which contains all Amazon Web Services specific stuff
