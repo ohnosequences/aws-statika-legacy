@@ -54,6 +54,7 @@ abstract class AWSDistribution[
     A <: AbstractAMI
   , Ms <: HList : ofBundles
   , Ds <: HList : ofBundles
+  , FD <: HList : Flat[Ds]#is
   ](val ami: A
   , val members: Ms
   , val deps: Ds = HNil : HNil
@@ -62,5 +63,7 @@ abstract class AWSDistribution[
   type AMI = A
   type Members = Ms 
   type Deps = Ds
+  type FlatDeps = FD
+  val flatDeps = flatten(deps)
 
 }
