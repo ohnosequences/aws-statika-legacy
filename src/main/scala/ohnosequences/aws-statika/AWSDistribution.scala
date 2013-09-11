@@ -22,7 +22,7 @@ trait AnyAWSDistribution extends AnyDistribution {
       ami.userScript(this, bundle, credentials)
 
   // Amazon instance profile ARN corresponding to the role with credentials (for resolving)
-  val instanceProfileARN: Option[String]
+  val instanceProfileARN: Option[String] = None
 
 
   /*
