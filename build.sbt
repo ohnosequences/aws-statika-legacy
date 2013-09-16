@@ -24,7 +24,6 @@ publishTo <<= (isSnapshot, s3credentials) {
   credentials map S3Resolver(
       "Era7 "+prefix+" S3 bucket"
     , "s3://"+prefix+".era7.com"
-    // , Resolver.ivyStylePatterns
     ).toSbtResolver
 }
 
@@ -37,7 +36,7 @@ resolvers ++= Seq (
   )
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "0.14.0"
+    "ohnosequences" %% "statika" % "0.14.1"
   )
 
 
