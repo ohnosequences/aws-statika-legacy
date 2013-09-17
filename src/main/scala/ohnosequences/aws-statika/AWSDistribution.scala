@@ -3,8 +3,6 @@ package ohnosequences.statika.aws
 import ohnosequences.statika._
 
 trait AnyAWSDistribution extends AnyDistribution {
-  // meta data of the sbt-project of the bundle
-  val metadata: AWSMetadataOf[this.type]
 
   /*
     #### AMI dependency
@@ -22,6 +20,10 @@ trait AnyAWSDistribution extends AnyDistribution {
     , credentials: AWSCredentials = RoleCredentials
     ): String =
       ami.userScript(this, bundle, credentials)
+
+  // Amazon instance profile ARN corresponding to the role with credentials (for resolving)
+  val instanceProfileARN: Option[String] = None
+
 
   /*
     #### Resources management

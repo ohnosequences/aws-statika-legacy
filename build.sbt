@@ -30,7 +30,7 @@ publishTo <<= (isSnapshot, s3credentials) {
 
 resolvers ++= Seq ( 
     "Era7 Releases"  at "http://releases.era7.com.s3.amazonaws.com"
-  // , "Era7 Snapshots" at "http://snapshots.era7.com.s3.amazonaws.com"
+  , "Era7 Snapshots" at "http://snapshots.era7.com.s3.amazonaws.com"
   , Resolver.url("Era7 ivy releases", url("http://releases.era7.com.s3.amazonaws.com"))(Resolver.ivyStylePatterns)
   // , Resolver.url("Era7 ivy snapshots", url("http://snapshots.era7.com.s3.amazonaws.com"))(Resolver.ivyStylePatterns)
   )
