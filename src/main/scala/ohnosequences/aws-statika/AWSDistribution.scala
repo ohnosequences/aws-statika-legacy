@@ -15,11 +15,11 @@ trait AnyAWSDistribution extends AnyDistribution {
   type AMI <: AbstractAMI
   val ami: AMI
 
-  def userScript[B <: AnyBundle : IsMember](
-      bundle: B
-    , credentials: AWSCredentials = RoleCredentials
-    ): String =
-      ami.userScript(this, bundle, credentials)
+  def userScript[
+      B <: AnyBundle : IsMember
+    , Bs <: HList : (b.FlatDeps :+ B)#is : Installable
+    ](b: B, credentials: AWSCredentials = RoleCredentials): String =
+      ami.userScript(this, b, credentials)
 
   // Amazon instance profile ARN corresponding to the role with credentials (for resolving)
   val instanceProfileARN: Option[String] = None
