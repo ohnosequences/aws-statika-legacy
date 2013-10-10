@@ -15,10 +15,8 @@ trait AnyAWSDistribution extends AnyDistribution {
   type AMI <: AbstractAMI
   val ami: AMI
 
-  def userScript[
-      B <: AnyBundle : IsMember
-    , Bs <: HList : (b.FlatDeps :+ B)#is : Installable
-    ](b: B, credentials: AWSCredentials = RoleCredentials): String =
+  def userScript[B <: AnyBundle : isMember : isInstallable]
+    (b: B, credentials: AWSCredentials = RoleCredentials): String =
       ami.userScript(this, b, credentials)
 
   // Amazon instance profile ARN corresponding to the role with credentials (for resolving)
@@ -54,18 +52,15 @@ trait AnyAWSDistribution extends AnyDistribution {
 // Just a constructor with AMI and lists of members/deps as type-parameters  
 abstract class AWSDistribution[
     A <: AbstractAMI
-  , Ms <: HList : ofBundles
-  , Ds <: HList : ofBundles
-  , FD <: HList : Flat[Ds]#is
+  , M <: TypeSet : ofBundles
+  , D <: TypeSet : ofBundles
+  , T <: HList   : towerFor[D]#is
   ](val ami: A
-  , val members: Ms
-  , val deps: Ds = HNil : HNil
-  ) extends AnyAWSDistribution {
+  , val members: M
+  , deps: D = ∅
+  ) extends Bundle[D, T](deps) with AnyAWSDistribution {
 
   type AMI = A
-  type Members = Ms 
-  type Deps = Ds
-  type FlatDeps = FD
-  val flatDeps = flatten(deps)
+  type Members = M 
 
 }
