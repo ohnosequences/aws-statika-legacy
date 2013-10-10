@@ -45,7 +45,7 @@ abstract class AbstractAMI(val id: String, val amiVersion: String) {
   */
   def userScript[
       D <: AnyDistribution
-    , B <: AnyBundle : distribution.IsMember
+    , B <: AnyBundle : distribution.isMember : distribution.isInstallable
     ](distribution: D
     , bundle: B
     , credentials: AWSCredentials = RoleCredentials
