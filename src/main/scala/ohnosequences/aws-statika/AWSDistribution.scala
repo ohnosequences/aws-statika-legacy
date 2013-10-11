@@ -5,7 +5,7 @@ import ohnosequences.statika._
 trait AnyAWSDistribution extends AnyDistribution {
 
   /*
-    #### AMI dependency
+    ### AMI dependency
 
     We have a generic `AbstractAMI` type and a distribution contains an 
     instance of it as all the members/bundles of the distribution are supposed 
@@ -23,33 +23,14 @@ trait AnyAWSDistribution extends AnyDistribution {
   val instanceProfileARN: Option[String] = None
 
 
-  /*
-    #### Resources management
-  */
+  /* ### Resources management */
   val resourceBucket: Path = ""
 
-  /*
-  This method checks that the machine on which it's called has the corresponding 
-  instance profile (which is set in the distribution's metadata).
-  */
-  // def checkRole: InstallResults = {
-  //   try {
-  //     val currentIdURL = new URL("http://169.254.169.254/latest/meta-data/iam/info")
-  // TODO: here some parsing is needed, because the response is in json format
-  //     val profile = io.Source.fromURL(currentIdURL).mkString
-  //     if (profile == metadata.instanceProfileARN)
-  //       success("Checked that instance profile ARN is " + profile)
-  //     else
-  //       failure("AMI should be "+ metadata.instanceProfileARN +", instead of "+ profile)
-  //   } catch {
-  //     case t : Throwable => failure("Couldn't check instance profile ARN because of "+t.toString)
-  //   }
-  // }
-
+  /* Initial check, that we are running on the right AMI  */
   def setContext: InstallResults = ami.checkID
 }
 
-// Just a constructor with AMI and lists of members/deps as type-parameters  
+/* Just a constructor with AMI and sets of members/deps as type-parameters   */
 abstract class AWSDistribution[
     A <: AbstractAMI
   , M <: TypeSet : ofBundles

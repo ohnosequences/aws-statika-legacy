@@ -13,7 +13,6 @@ to control, that all the member of it are installed with the same image.
 
 abstract class AbstractAMI(val id: String, val amiVersion: String) {
 
-  import scala.sys.process._
   import java.io._
   import java.net.URL
 
