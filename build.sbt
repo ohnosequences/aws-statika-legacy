@@ -13,7 +13,7 @@ organizationHomepage := Some(url("http://ohnosequences.com"))
 licenses := Seq("AGPLv3" -> url("http://www.gnu.org/licenses/agpl-3.0.txt"))
 
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
 
 publishMavenStyle := true
 
@@ -34,7 +34,9 @@ resolvers ++= Seq (
   )
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "0.16.0-SNAPSHOT"
+    "ohnosequences" %% "statika" % "0.16.0"
+  , "org.scalatest" %% "scalatest" % "1.9.2" % "test"
+  , "ohnosequences" %% "literator" % "0.2.0" % "test"
   )
 
 
