@@ -9,5 +9,5 @@ To add a dependency in your sbt-project, add these lines:
 ```scala
 resolvers += "Era7 maven releases" at "http://releases.era7.com.s3.amazonaws.com"
 
-libraryDependencies += "ohnosequences" %% "aws-statika" % "0.2.0"
+libraryDependencies += "ohnosequences" %% "aws-statika" % "0.3.0"
 ```
