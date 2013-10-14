@@ -13,7 +13,7 @@ organizationHomepage := Some(url("http://ohnosequences.com"))
 licenses := Seq("AGPLv3" -> url("http://www.gnu.org/licenses/agpl-3.0.txt"))
 
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
 
 publishMavenStyle := true
 
@@ -24,7 +24,6 @@ publishTo <<= (isSnapshot, s3credentials) {
   credentials map S3Resolver(
       "Era7 "+prefix+" S3 bucket"
     , "s3://"+prefix+".era7.com"
-    // , Resolver.ivyStylePatterns
     ).toSbtResolver
 }
 
@@ -32,12 +31,12 @@ publishTo <<= (isSnapshot, s3credentials) {
 resolvers ++= Seq ( 
     "Era7 Releases"  at "http://releases.era7.com.s3.amazonaws.com"
   // , "Era7 Snapshots" at "http://snapshots.era7.com.s3.amazonaws.com"
-  , Resolver.url("Era7 ivy releases", url("http://releases.era7.com.s3.amazonaws.com"))(Resolver.ivyStylePatterns)
-  // , Resolver.url("Era7 ivy snapshots", url("http://snapshots.era7.com.s3.amazonaws.com"))(Resolver.ivyStylePatterns)
   )
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "0.15.0"
+    "ohnosequences" %% "statika" % "0.16.0"
+  , "org.scalatest" %% "scalatest" % "1.9.2" % "test"
+  , "ohnosequences" %% "literator" % "0.2.0" % "test"
   )
 
 

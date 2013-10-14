@@ -1,8 +1,13 @@
+
+```scala
 package ohnosequences.statika
 
 package object aws {
+```
 
-  /* Type for credentials with some predefined convenient constructors */
+Type for credentials with some predefined convenient constructors
+
+```scala
   trait AWSCredentials
   // no credentials is needed
   case object NoCredentials extends AWSCredentials
@@ -14,3 +19,5 @@ package object aws {
   case class Explicit(accessKey: String, secretKey: String) extends AWSCredentials
 
 }
+
+```
