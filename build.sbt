@@ -30,11 +30,11 @@ publishTo <<= (isSnapshot, s3credentials) {
 
 resolvers ++= Seq ( 
     "Era7 Releases"  at "http://releases.era7.com.s3.amazonaws.com"
-  // , "Era7 Snapshots" at "http://snapshots.era7.com.s3.amazonaws.com"
+  , "Era7 Snapshots" at "http://snapshots.era7.com.s3.amazonaws.com"
   )
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "0.16.0"
+    "ohnosequences" %% "statika" % "0.17.0-SNAPSHOT"
   , "org.scalatest" %% "scalatest" % "1.9.2" % "test"
   , "ohnosequences" %% "literator" % "0.2.0" % "test"
   )
