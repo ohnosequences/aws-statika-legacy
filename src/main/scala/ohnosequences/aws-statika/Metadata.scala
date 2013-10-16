@@ -6,20 +6,11 @@ We want to map distribution to it's artifact. For example, with the generated in
 
 package ohnosequences.statika.aws
 
-/* ### Generic type dependent meta data */
-trait Metadata {
-  // type Subj
-}
-
-// trait MetadataOf[S] extends Metadata { type Subj = S }
+trait AnyMetadata
 
 
-/*
-### SBT-specific metadata 
-
-Mainly moduleID and resolvers.
-*/
-trait SbtMetadata extends Metadata {
+/* ### SBT-specific metadata */
+trait SbtMetadata extends AnyMetadata {
   // In ivy terminology:
   // groupID
   val organization: String
@@ -32,10 +23,10 @@ trait SbtMetadata extends Metadata {
 
   override def toString = moduleID
 
-  // statika version used for building `Subj` project
+  // statika version used for building the project
   val statikaVersion: String
 
-  // sbt resolvers, which are needed to build `Subj` project
+  // sbt resolvers, which are needed to build the project
   val resolvers: Seq[String]
   val privateResolvers: Seq[String]
 }
