@@ -22,13 +22,9 @@ trait SbtMetadata extends AnyMetadata {
   val version: String
 
   def moduleID = "\""+organization+"\" %% \""+artifact+"\" % \""+version+"\""
-
   override def toString = moduleID
 
-  // statika version used for building the project
-  val statikaVersion: String
-
-  // sbt resolvers, which are needed to build the project
+  // serialized sbt resolvers, which are needed to build the project
   val resolvers: Seq[String]
   val privateResolvers: Seq[String]
 }
