@@ -29,7 +29,7 @@ trait AnyAWSDistribution extends AnyDistribution {
       M >: Metadata <: ami.MetadataBound
     , B <: AnyBundle : isMember : isInstallable
     ](b: B, creds: AWSCredentials = RoleCredentials) = 
-    ami.userScript[M](metadata, this.name, b.name, creds)
+    ami.userScript[M](metadata, this.fullName, b.fullName, creds)
 
 
   // Initial check, that we are running on the right AMI  
