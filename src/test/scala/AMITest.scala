@@ -28,8 +28,8 @@ class AMITests extends FunSuite {
   }
 
   test("Specific metadata in AMI") {
-    assert(dist.ami.userScript(dist.metadata, dist.name, bun.name) == dist.userScript(bun))
-    assert(dist.userScript(bun) === "¡whoa! dist bun?")
+    assert(dist.ami.userScript(dist.metadata, dist.fullName, bun.fullName) === dist.userScript(bun))
+    assert(dist.userScript(bun) === "¡whoa! "+dist.fullName+" "+bun.fullName+"?")
   }
 
 }
