@@ -19,7 +19,7 @@ scalaVersion := "2.10.3"
 bucketSuffix := "era7.com"
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "0.17.0-SNAPSHOT"
+    "ohnosequences" %% "statika" % "0.17.0"
   , "org.scalatest" %% "scalatest" % "1.9.2" % "test"
   , "ohnosequences" %% "literator" % "0.2.0" % "test"
   )

@@ -2,6 +2,10 @@
 
 We want to map distribution to it's artifact. For example, with the generated information from SBT.
 
+See also [sbt-statika](https://github.com/ohnosequences/sbt-statika/) sbt plugin, which accumulates
+for convenience all the common sbt settings, needed by bundles. Moreover, it provides a (compile-
+time) generated metadata for the project (of `SbtMetadata` type defined here).
+
 
 ```scala
 package ohnosequences.statika.aws
