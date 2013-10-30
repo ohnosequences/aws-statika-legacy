@@ -32,6 +32,13 @@ trait SbtMetadata extends AnyMetadata {
   val resolvers: Seq[String]
   val privateResolvers: Seq[String]
 }
+```
 
+### Metadata for deployment with a fat jar artifact
+
+```scala
+trait FatJarMetadata extends AnyMetadata {
+  val artifactUrl: String
+}
 
 ```
