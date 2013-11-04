@@ -1,3 +1,5 @@
+/* ## Abstract AWS distributions */
+
 package ohnosequences.statika.aws
 
 import ohnosequences.statika._

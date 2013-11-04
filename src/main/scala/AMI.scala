@@ -1,5 +1,5 @@
 /*
-### Amazon Machine Images (AMIs)
+## Amazon Machine Images (AMIs)
 
 This abstraction represents AMIs, that are supposed to be used in distributions
 to control, that all the members are installed with the same image.

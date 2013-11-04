@@ -1,3 +1,4 @@
+## Abstract AWS distributions
 
 ```scala
 package ohnosequences.statika.aws
