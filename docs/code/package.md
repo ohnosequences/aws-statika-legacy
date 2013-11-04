@@ -3,9 +3,6 @@
 package ohnosequences.statika
 
 package object aws {
-
-  // for example `[D <: AnyAWSDistribution : hasMetadata]`
-  // type hasMetadata[S] = MetadataOf[S]
 ```
 
 Type for credentials with some predefined convenient constructors
