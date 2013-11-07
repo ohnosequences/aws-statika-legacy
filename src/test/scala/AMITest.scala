@@ -20,7 +20,7 @@ class AMITests extends FunSuite {
         md.smth +" "+ distName +" "+ bundleName +"?"
   }
 
-  case object bun extends Bundle() { def install[D <: AnyDistribution](d: D) = success(name) }
+  case object bun extends Bundle()
 
   case class SomeSpecialMetadata(smth0: String) extends SomeMetadata(smth0)
 
@@ -30,7 +30,6 @@ class AMITests extends FunSuite {
     , deps = ∅) {
 
     val metadata = SomeSpecialMetadata("¡whoa!")
-    def install[D <: AnyDistribution](d: D) = success(name) 
   }
 
   test("Specific metadata in AMI") {
