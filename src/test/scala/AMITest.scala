@@ -6,24 +6,30 @@ import org.scalatest._
 
 class AMITests extends FunSuite {
 
-  case class SomeMetadata(val smth: String) extends AnyMetadata
+  class SomeMetadata(val smth: String) extends AnyMetadata
 
   case object amimi extends AbstractAMI("id", "version") {
-    type MetadataBound = SomeMetadata
+    type Metadata = SomeMetadata
 
-    override def userScript[M <: MetadataBound]
-      (md: M, distName: String, bundleName: String, creds: AWSCredentials = RoleCredentials): String =
+    def userScript(
+        md: Metadata
+      , distName: String
+      , bundleName: String
+      , creds: AWSCredentials = RoleCredentials
+      ): String =
         md.smth +" "+ distName +" "+ bundleName +"?"
   }
 
   case object bun extends Bundle() { def install[D <: AnyDistribution](d: D) = success(name) }
 
+  case class SomeSpecialMetadata(smth0: String) extends SomeMetadata(smth0)
+
   case object dist extends AWSDistribution(
-      metadata = SomeMetadata("¡whoa!")
-    , ami = amimi
+      ami = amimi
     , members = bun :+: ∅
     , deps = ∅) {
 
+    val metadata = SomeSpecialMetadata("¡whoa!")
     def install[D <: AnyDistribution](d: D) = success(name) 
   }
 
