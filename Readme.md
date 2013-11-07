@@ -14,7 +14,7 @@ To add a **direct** dependency in your sbt-project, add these lines:
 ```scala
 resolvers += "Era7 maven releases" at "http://releases.era7.com.s3.amazonaws.com"
 
-libraryDependencies += "ohnosequences" %% "aws-statika" % "0.5.0"
+libraryDependencies += "ohnosequences" %% "aws-statika" % "1.0.0"
 ```
 
 Normally, you should use [sbt-statika](https://github.com/ohnosequences/sbt-statika) plugin instead. It adds this dependency with the latest stable version and adds other things, which are kind of standardized configuration for statika bundles and distributions.
