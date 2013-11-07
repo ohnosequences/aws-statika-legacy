@@ -1,5 +1,5 @@
 /*
-### Amazon Machine Images (AMIs)
+## Amazon Machine Images (AMIs)
 
 This abstraction represents AMIs, that are supposed to be used in distributions
 to control, that all the members are installed with the same image.
@@ -21,10 +21,14 @@ abstract class AbstractAMI(val id: String, val amiVersion: String) {
       - for info about credentials see the definition of `AWSCredentials` type;
   */
 
-  type MetadataBound <: AnyMetadata
+  type Metadata <: AnyMetadata
 
-  def userScript[M <: MetadataBound]
-    (md: M, distName: String, bundleName: String, creds: AWSCredentials = RoleCredentials): String
+  def userScript(
+      md: Metadata
+    , distName: String
+    , bundleName: String
+    , creds: AWSCredentials = RoleCredentials
+    ): String
 
   /* This method checks that the machine on which it's called has the corresponding image. */
   def checkID: InstallResults = {

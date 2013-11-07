@@ -1,4 +1,4 @@
-### Amazon Machine Images (AMIs)
+## Amazon Machine Images (AMIs)
 
 This abstraction represents AMIs, that are supposed to be used in distributions
 to control, that all the members are installed with the same image.
@@ -22,10 +22,14 @@ auto-scaling group with this bundle being installed (what is called to _apply a 
 - for info about credentials see the definition of `AWSCredentials` type;
 
 ```scala
-  type MetadataBound <: AnyMetadata
+  type Metadata <: AnyMetadata
 
-  def userScript[M <: MetadataBound]
-    (md: M, distName: String, bundleName: String, creds: AWSCredentials = RoleCredentials): String
+  def userScript(
+      md: Metadata
+    , distName: String
+    , bundleName: String
+    , creds: AWSCredentials = RoleCredentials
+    ): String
 ```
 
 This method checks that the machine on which it's called has the corresponding image.
