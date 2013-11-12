@@ -7,12 +7,11 @@ import org.scalatest._
 class AMITests extends FunSuite {
 
   class SomeMetadata(val smth: String) extends AnyMetadata
+  case class SomeSpecialMetadata(smth0: String) extends SomeMetadata(smth0)
 
-  case object amimi extends AbstractAMI("id", "version") {
-    type Metadata = SomeMetadata
-
-    def userScript(
-        md: Metadata
+  case object amimi extends AMI[SomeMetadata]("id", "version") {
+    override def userScript(
+        md: MetadataBound
       , distName: String
       , bundleName: String
       , creds: AWSCredentials = RoleCredentials
@@ -22,15 +21,11 @@ class AMITests extends FunSuite {
 
   case object bun extends Bundle()
 
-  case class SomeSpecialMetadata(smth0: String) extends SomeMetadata(smth0)
-
   case object dist extends AWSDistribution(
-      ami = amimi
+      metadata = SomeSpecialMetadata("¡whoa!")
+    , ami = amimi
     , members = bun :+: ∅
-    , deps = ∅) {
-
-    val metadata = SomeSpecialMetadata("¡whoa!")
-  }
+    , deps = ∅) {}
 
   test("Specific metadata in AMI") {
     assert(dist.ami.userScript(dist.metadata, dist.fullName, bun.fullName) === dist.userScript(bun))

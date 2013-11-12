@@ -9,7 +9,13 @@ package ohnosequences.statika.aws
 
 import ohnosequences.statika._
 
-abstract class AbstractAMI(val id: String, val amiVersion: String) {
+object AnyAMI {
+  type of[M <: AnyMetadata] = AnyAMI { type MetadataBound >: M }
+}
+
+trait AnyAMI {
+  val id: String
+  val amiVersion: String
 ```
 
 This is the main purpose of having this image abstraction: to be able to generate a 
@@ -22,10 +28,10 @@ auto-scaling group with this bundle being installed (what is called to _apply a 
 - for info about credentials see the definition of `AWSCredentials` type;
 
 ```scala
-  type Metadata <: AnyMetadata
+  type MetadataBound <: AnyMetadata
 
   def userScript(
-      md: Metadata
+      md: MetadataBound
     , distName: String
     , bundleName: String
     , creds: AWSCredentials = RoleCredentials
@@ -52,5 +58,12 @@ This method checks that the machine on which it's called has the corresponding i
   }
 
 }
+```
+
+A constructor for ami objects
+
+```scala
+abstract class AMI[MB <: AnyMetadata](val id: String, val amiVersion: String) 
+  extends AnyAMI { type MetadataBound = MB }
 
 ```
