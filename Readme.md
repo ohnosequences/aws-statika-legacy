@@ -2,10 +2,10 @@
 
 This the part of [statika](https://github.com/ohnosequences/statika) project which contains all Amazon Web Services specific abstractions, such as
 
-* [AWSCredentials](docs/code/package.md)
-* [Metadata](docs/code/Metadata.md)
-* [AbstractAMI](docs/code/AMI.md)
-* [AWSDistribution](docs/code/AWSDistribution.md)
+* [AWSCredentials][main/scala/AWSCredentials]
+* [Metadata][main/scala/Metadata]
+* [AbstractAMI][main/scala/AbstractAMI]
+* [AWSDistribution][main/scala/AWSDistribution]
 
 ### Usage
 
@@ -28,3 +28,9 @@ Besides documentation for the components of the library (see links in the beginn
 * [How to apply a bundle to an EC2 instance](docs/how-to-apply-a-bundle.md)
 
 See also [statika core library](https://github.com/ohnosequences/statika) documentation, if you haven't yet, it describes general ideas and explains how to write bundles (and what they are, of course).
+
+
+[main/scala/AWSCredentials]: docs/src/main/scala/AWSCredentials.md
+[main/scala/Metadata]: docs/src/main/scala/Metadata.md
+[main/scala/AbstractAMI]: docs/src/main/scala/AbstractAMI.md
+[main/scala/AWSDistribution]: docs/src/main/scala/AWSDistribution.md
