@@ -4,7 +4,7 @@ This the part of [statika](https://github.com/ohnosequences/statika) project whi
 
 * [AWSCredentials][main/scala/AWSCredentials]
 * [Metadata][main/scala/Metadata]
-* [AbstractAMI][main/scala/AbstractAMI]
+* [AMI][main/scala/AMI]
 * [AWSDistribution][main/scala/AWSDistribution]
 
 ### Usage
@@ -32,5 +32,5 @@ See also [statika core library](https://github.com/ohnosequences/statika) docume
 
 [main/scala/AWSCredentials]: docs/src/main/scala/AWSCredentials.md
 [main/scala/Metadata]: docs/src/main/scala/Metadata.md
-[main/scala/AbstractAMI]: docs/src/main/scala/AbstractAMI.md
+[main/scala/AMI]: docs/src/main/scala/AMI.md
 [main/scala/AWSDistribution]: docs/src/main/scala/AWSDistribution.md
