@@ -1,9 +1,26 @@
+### Index
+
++ src
+  + main
+    + scala
+      + [AMI.scala](AMI.md)
+      + [AWSCredentials.scala](AWSCredentials.md)
+      + [AWSDistribution.scala](AWSDistribution.md)
+      + [Metadata.scala](Metadata.md)
+  + test
+    + scala
+      + [AMITest.scala](../../test/scala/AMITest.md)
+
+------
+
 ## Abstract AWS distributions
 
 ```scala
 package ohnosequences.statika.aws
 
+import shapeless._
 import ohnosequences.statika._
+import ohnosequences.typesets._
 
 trait AnyAWSDistribution extends AnyDistribution {
 ```
@@ -60,3 +77,4 @@ abstract class AWSDistribution[
 }
 
 ```
+

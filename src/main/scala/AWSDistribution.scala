@@ -2,7 +2,9 @@
 
 package ohnosequences.statika.aws
 
+import shapeless._
 import ohnosequences.statika._
+import ohnosequences.typesets._
 
 trait AnyAWSDistribution extends AnyDistribution {
 

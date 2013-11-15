@@ -1,3 +1,18 @@
+### Index
+
++ src
+  + main
+    + scala
+      + [AMI.scala](AMI.md)
+      + [AWSCredentials.scala](AWSCredentials.md)
+      + [AWSDistribution.scala](AWSDistribution.md)
+      + [Metadata.scala](Metadata.md)
+  + test
+    + scala
+      + [AMITest.scala](../../test/scala/AMITest.md)
+
+------
+
 ## Amazon Machine Images (AMIs)
 
 This abstraction represents AMIs, that are supposed to be used in distributions
@@ -67,3 +82,4 @@ abstract class AMI[MB <: AnyMetadata](val id: String, val amiVersion: String)
   extends AnyAMI { type MetadataBound = MB }
 
 ```
+

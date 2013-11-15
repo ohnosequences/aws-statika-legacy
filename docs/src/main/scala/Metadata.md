@@ -1,3 +1,18 @@
+### Index
+
++ src
+  + main
+    + scala
+      + [AMI.scala](AMI.md)
+      + [AWSCredentials.scala](AWSCredentials.md)
+      + [AWSDistribution.scala](AWSDistribution.md)
+      + [Metadata.scala](Metadata.md)
+  + test
+    + scala
+      + [AMITest.scala](../../test/scala/AMITest.md)
+
+------
+
 ## Metadata
 
 We want to map distribution to it's artifact. For example, with the generated information from SBT.
@@ -42,3 +57,4 @@ trait FatJarMetadata extends AnyMetadata {
 }
 
 ```
+
