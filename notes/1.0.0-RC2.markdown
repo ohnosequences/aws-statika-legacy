@@ -1,0 +1,8 @@
+* Changed AMI classes:
+  + There is `AnyAMI` trait
+  + It's companion object for `AMI.of[<some metadata bound]` bounding
+  + `AMI` constructor for creating new amis
+* Metadata changes:
+  + `AnyAMI` now has `MetadataBound`
+  + `AnyAWSDistribution` takes any `Metadata` and `AMI <: AnyAMI.of[Metadata]`
+* Updated to statika v1.0-RC2 and latest nice-sbt-settings plugin
