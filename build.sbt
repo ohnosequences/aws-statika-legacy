@@ -9,7 +9,6 @@ organization := "ohnosequences"
 bucketSuffix := "era7.com"
 
 libraryDependencies ++= Seq(
-    "ohnosequences" %% "statika" % "1.0.0-RC1"
+    "ohnosequences" %% "statika" % "1.0.0-RC2"
   , "org.scalatest" %% "scalatest" % "1.9.2" % "test"
-  , "ohnosequences" %% "literator" % "0.2.0" % "test"
   )
