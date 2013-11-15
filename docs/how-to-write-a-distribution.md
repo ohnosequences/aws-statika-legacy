@@ -40,7 +40,7 @@ import ohnosequences.statika._
 case object SimpleDistribution extends AWSDistribution(
     metadata = generated.metadata.SimpleDistribution
   , ami = ami.AMI44939930
-  , members = Git :+: Foo :+: Tophat :+: Bowtie
+  , members = Git :~: Foo :~: Tophat :~: Bowtie
   )
 ```
 

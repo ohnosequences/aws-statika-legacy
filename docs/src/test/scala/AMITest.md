@@ -62,7 +62,8 @@ There is a bundle and a distribution which contains it and uses `amimi`
       metadata = SomeSpecialMetadata("¡whoa!") // note that here we use _some special metadata_!
     , ami = amimi
     , members = bun :~: ∅
-    , deps = ∅) {}
+    , deps = ∅
+    )
 ```
 
 And the happy end of this story is that we check that user script look like we expect
